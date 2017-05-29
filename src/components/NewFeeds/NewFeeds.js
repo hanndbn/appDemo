@@ -5,7 +5,7 @@ import '../../styles/home-page.css';
 class NewFeeds extends React.Component {
   render() {
     return (
-      <div className="col-xs-12 col-md-4">
+      <div className="col-xs-12 col-md-5">
         <div className="news-top">
           <div className="">
             <div className="">

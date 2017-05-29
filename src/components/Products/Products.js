@@ -5,8 +5,8 @@ import '../../styles/home-page.css';
 class Products extends React.Component {
   render() {
     return (
-      <div className="fproduct-home product-group clearfix">
-        <h2 className="title-row titleSpecial"><span>SẢN PHẨM CHỦ ĐẠO</span></h2>
+      <div className="fproduct-home product-group clearfix global-title">
+        <h2 className="titleSpecial"><span>SẢN PHẨM CHỦ ĐẠO</span></h2>
         <div className="row products">
           <div className="col-lg-3 col-md-4 col-sm-4 col-xs-6">
             <div className="item">

@@ -5,7 +5,7 @@ import '../../styles/home-page.css';
 class CustomerComment extends React.Component {
   render() {
     return (
-      <div className="col-xs-12 col-md-8">
+      <div className="col-xs-12 col-md-7">
         <div className="">
           <div className="news-top">
             <div className="">
@@ -198,14 +198,6 @@ class CustomerComment extends React.Component {
               </div>
             </div>
 
-          </div>
-        </div>
-        <div className="row">
-          <div className="quangcao">
-            <a
-              href="http://princesswhite.vn/cau-hoi-thuong-gap/ly-do-ban-nen-chon-my-pham-thien-nhien-princess-white-47.html"
-              target="_blank"><img src="http://princesswhite.vn/upload/hinhanh/335151156741381.jpg" className="img-responsive"
-                                   alt="Quảng cáo trang chủ"/></a>
           </div>
         </div>
       </div>

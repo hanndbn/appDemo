@@ -70,10 +70,10 @@ class Header extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-5 col-sm-5 col-md-12 col-lg-12"/>
-            <div className="col-xs-2 col-lg-2">
+            <div className="col-xs-3 col-lg-2 col-md-3">
               <img width="100%" src="images/logo2.png" alt=""/>
             </div>
-            <div className="col-xs-12 col-lg-10">
+            <div className="col-xs-12 col-lg-10 col-md-9">
               <div className="navbar">
                 <div className="">
                   <div className="">
@@ -102,10 +102,10 @@ class Header extends React.Component {
                             </a>
                           </li>
                           <li className="">
-                            <a href="#" title="Sản phẩm"
+                            <a href="#" title="SẢN PHẨM"
                                className="item-haschild has-submenu" id="sm-14959438921544436-17" aria-haspopup="true"
                                aria-controls="sm-14959438921544436-18" aria-expanded="false">
-                              Sản phẩm<span className="caret"/>
+                              SẢN PHẨM<span className="caret"/>
                             </a>
                             <ul className="dropdown-menu" id="sm-14959438921544436-18" role="group" aria-hidden="true"
                                 aria-labelledby="sm-14959438921544436-17" aria-expanded="false">
