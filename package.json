@@ -9,7 +9,7 @@
     "preinstall": "node tools/nodeVersionCheck.js",
     "remove-demo": "babel-node tools/removeDemo.js",
     "start-message": "babel-node tools/startMessage.js",
-    "prestart": "npm-run-all --parallel start-message",
+    "prestart1": "npm-run-all --parallel start-message",
     "start1": "npm-run-all --parallel test:watch open:src lint:watch",
     "start2": "npm-run-all --parallel open:src",
     "start": "npm run open:src",
