@@ -10486,7 +10486,7 @@ textarea {
 
 #header .topbar .right .block .expandlogin {
   position: absolute;
-  top: 31px;
+  top: 48px;
   left: 50%;
   padding: 30px;
   margin-left: -200px;
@@ -11395,7 +11395,7 @@ a.sb-button:hover {
 }
 
 .products .item {
-  margin-top: 35px
+  margin-top: 25px
 }
 
 .products .item .thumb {
@@ -11435,7 +11435,7 @@ a.sb-button:hover {
 }
 
 .products .item .caption .title a:hover {
-  color: #ed145b
+  color: #00b18a
 }
 
 .products .item .caption .price {
@@ -11461,7 +11461,7 @@ a.sb-button:hover {
 }
 
 .products .item:hover .caption .title a {
-  color: #ed145b
+  color: #00b18a
 }
 
 .i-new {
@@ -11592,8 +11592,6 @@ a.sb-button:hover {
 }
 
 .product-detail .top-detail .photo {
-  width: 385px;
-  float: left;
   margin-right: 20px
 }
 
@@ -11615,14 +11613,16 @@ a.sb-button:hover {
 }
 
 .product-detail .top-detail .photo .thumbs ul {
-  width: 1000%
+  width: 100%;
+  text-align: center;
 }
 
 .product-detail .top-detail .photo .thumbs ul li {
-  float: left;
+  /*float: left;*/
   width: 60px;
   margin-right: 10px;
-  position: relative
+  position: relative;
+  display: inline-block;
 }
 
 .product-detail .top-detail .photo .thumbs ul li .frame {
@@ -18300,3 +18300,25 @@ a.sb-button:hover {
   font-size: 15px;
 }
 
+.productFeature{
+  box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; outline: 0px; background: 0px 0px; vertical-align: baseline; color: rgb(0, 0, 0); font-family: Roboto, Arial, Helvetica, sans-serif; font-size: 17px;
+}
+
+.productFeatureDetail{
+  color:rgb(0, 0, 0); font-family:roboto,arial,helvetica,sans-serif; font-size:17px
+}
+.productFeatureSpan{
+  font-family:roboto,arial,helvetica,sans-serif;
+}
+.productFeatureSpanFS{
+  font-family:roboto,arial,helvetica,sans-serif; font-size:16px;
+}
+
+.editor span {
+  font-size: 16px;
+  font-family:arial,helvetica,sans-serif
+}
+
+.editorColor{
+  color:rgb(29, 33, 41)
+}

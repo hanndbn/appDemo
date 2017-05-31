@@ -9,13 +9,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <IndexLink to="/home">Home1</IndexLink>
+        <IndexLink to="/home">Trang chủ</IndexLink>
         {' | '}
-        <Link to="/tintuc">Tin tức</Link>
+        <Link to="/products">Sản Phẩm</Link>
         {' | '}
-        <Link to="/tintucDetail">Tin tức chi tiết</Link>
+        <Link to="/productDetail">Chi Tiết Sản Phẩm</Link>
         {' | '}
-        <Link to="/about">About</Link>
+        <Link to="/tintuc">Tin Tức</Link>
+        {' | '}
+        <Link to="/tintucDetail">Chi Tiết Tin Tức</Link>
+        {' | '}
+        <Link to="/about">Liên hệ</Link>
         <br/>
         {this.props.children}
       </div>
