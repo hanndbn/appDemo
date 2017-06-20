@@ -1,5 +1,5 @@
 import React from 'react';
-//import {Link} from 'react-router';
+import {Link} from 'react-router';
 import '../../styles/home-page.css';
 import {connect} from 'react-redux';
 
@@ -24,7 +24,7 @@ class NewsDetail extends React.Component {
                     <figure className="caption" style={{display: 'inline-block', paddingTop: '10px', paddingBottom: '10px'}}><img alt="" height="435"
                                                                                        src={this.props.newsDetail.srcImage}
                                                                                        width="695"/>
-                      <figcaption>{this.props.newsDetail.title}</figcaption>
+                      <figcaption className="figcaption">{this.props.newsDetail.title}</figcaption>
                     </figure>
                   </div>
 
@@ -43,7 +43,7 @@ class NewsDetail extends React.Component {
                     <ul>
                       {this.props.news.map((item, index)=>{
                         return(
-                          <li key={index}>»&nbsp;<a href="#" title={item.title}>{item.title}</a> <span className="date">({item.timePost})</span></li>
+                          <li key={index}>»&nbsp;<Link to={"/tintuc/" + item.id} title={item.title}>{item.title}</Link> <span className="date">({item.timePost})</span></li>
                         )
                       })}
                     </ul>

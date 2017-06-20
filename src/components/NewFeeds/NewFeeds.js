@@ -1,5 +1,5 @@
 import React from 'react';
-//import {Link} from 'react-router';
+import {Link} from 'react-router';
 import '../../styles/home-page.css';
 import {connect} from 'react-redux';
 
@@ -15,40 +15,43 @@ class NewFeeds extends React.Component {
                   <div className="clearfix"/>
                 </div>
                 <div className="clearfix"/>
-
                 <div className="content-news">
                   <div className="simply-scroll simply-scroll-container">
                     <div className="simply-scroll-clip">
                       <div className="simply-scroll-list" style={{height: '2088px'}}>
                         <ul id="scroller" className="simply-scroll-list" style={{height: '1044px'}}>
-                          <li>
-                            <div className="col-xs-12 col-md-12 item-news">
-                              <div className="row">
-                                <div className="col-xs-4">
-                                  <div className="row">
-                                    <div className="image">
-                                      <a href="tu-van/cong-dung-cua-bot-tra-xanh-trong-lam-dep-va-suc-khoe-97.html"
-                                         title="Công dụng của bột trà xanh trong làm đẹp và sức khỏe"><img
-                                        src="http://princesswhite.vn/upload/baiviet/140x130x1/princess-white-green-tea-tra-xanh-5163.jpg"
-                                        className="img-responsive"
-                                        alt="Công dụng của bột trà xanh trong làm đẹp và sức khỏe"/></a></div>
-                                  </div>
-                                </div>
-                                <div className="col-xs-8">
-                                  <div className="row-8">
-                                    <div className="name-news"><a
-                                      href="tu-van/cong-dung-cua-bot-tra-xanh-trong-lam-dep-va-suc-khoe-97.html"
-                                      title="Công dụng của bột trà xanh trong làm đẹp và sức khỏe">Công dụng của bột trà
-                                      xanh trong làm đẹp và sức khỏe</a></div>
-                                    <div className="desc-news">
-                                      Từ lâu, matcha đã là nguyên liệu làm đẹp nổi tiếng ở các nước phát triển như Nhật
-                                      Bản, Hàn Quốc. Sau đó, xu hướng làm đẹp này du nhập vào Việt Nam ...
+                          {
+                            this.props.news.map((item, index) => {
+                              let subtitle = item.subtitle.substring(0, item.subtitle.indexOf('.', 50) > 0 ?  item.subtitle.indexOf('.', 50) : item.subtitle.length);
+                              return(
+                                  <li key={index}>
+                                    <div className="col-xs-12 col-md-12 item-news">
+                                      <div className="row">
+                                        <div className="col-xs-4">
+                                          <div className="row">
+                                            <div className="image">
+                                              <Link to={"/tintuc/" + item.id} title={item.title}><img
+                                                src={item.srcImage}
+                                                className="img-responsive"
+                                                alt={item.title}/></Link></div>
+                                          </div>
+                                        </div>
+                                        <div className="col-xs-8">
+                                          <div className="row-8">
+                                            <div className="name-news"><Link
+                                              to={"/tintuc/" + item.id}
+                                              title={item.title}>{item.title}</Link></div>
+                                            <div className="desc-news">
+                                              {subtitle}...
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
                                     </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
+                                  </li>
+                                );
+                            })
+                          }
                         </ul>
                       </div>
                     </div>
@@ -66,7 +69,7 @@ class NewFeeds extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    newFeeds: state.newFeeds,
+    news: state.news,
   };
 };
 
@@ -77,5 +80,4 @@ const mapDispatchToProps = (dispatch) => {
     // },
   }
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(NewFeeds);

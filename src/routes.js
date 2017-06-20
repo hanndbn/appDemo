@@ -15,9 +15,9 @@ export default (
     <IndexRoute component={ProductsPage}/>
     <Route path="home" component={HomePage}/>
     <Route path="products" component={ProductsPage}/>
-    <Route path="productDetail" component={ProductDetailPage}/>
+    <Route path="products/:id" component={ProductDetailPage}/>
     <Route path="tintuc" component={TinTuc}/>
-    <Route path="tintucDetail" component={TinTucDetail}/>
+    <Route path="tintuc/:id" component={TinTucDetail}/>
     <Route path="about" component={AboutPage}/>
     <Route path="*" component={NotFoundPage}/>
   </Route>

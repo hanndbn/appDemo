@@ -1,6 +1,7 @@
 import React from 'react';
-//import {Link} from 'react-router';
 import '../../styles/home-page.css';
+import { Link, IndexLink } from 'react-router';
+
 
 class Header extends React.Component {
   render() {
@@ -24,25 +25,25 @@ class Header extends React.Component {
                   <div className="row">
                     <div className="col-md-12 fmlogin">
                       <p className="title">Đăng nhập bằng tài khoản</p>
-                      <div>
-                        <input type="hidden" name="type_login" value="1"/>
-                        <div className="form-group">
-                          <label className="field-name">Email <span className="req">*</span></label>
-                          <input className="form-control" type="text" placeholder="Nhập email" name="p_email"/>
-                        </div>
-                        <div className="form-group">
-                          <label className="field-name">Mật khẩu <span className="req">*</span></label>
-                          <input className="form-control" type="password" placeholder="Nhập mật khẩu"
-                                 name="p_password"/>
-                        </div>
-                        <div className="form-group form-footer">
-                          <p>Bạn đã quên mật khẩu? <a href="#"
-                                                      title="Quên mật khẩu">Click vào đây!</a></p>
-                          <div className="text-center">
-                            <input className="btn btn-default" type="submit" value="Đăng nhập"/>
-                          </div>
-                        </div>
-                      </div>
+                      {/*<div>*/}
+                        {/*<input type="hidden" name="type_login" value="1"/>*/}
+                        {/*<div className="form-group">*/}
+                          {/*<label className="field-name">Email <span className="req">*</span></label>*/}
+                          {/*<input className="form-control" type="text" placeholder="Nhập email" name="p_email"/>*/}
+                        {/*</div>*/}
+                        {/*<div className="form-group">*/}
+                          {/*<label className="field-name">Mật khẩu <span className="req">*</span></label>*/}
+                          {/*<input className="form-control" type="password" placeholder="Nhập mật khẩu"*/}
+                                 {/*name="p_password"/>*/}
+                        {/*</div>*/}
+                        {/*<div className="form-group form-footer">*/}
+                          {/*<p>Bạn đã quên mật khẩu? <a href="#"*/}
+                                                      {/*title="Quên mật khẩu">Click vào đây!</a></p>*/}
+                          {/*<div className="text-center">*/}
+                            {/*<input className="btn btn-default" type="submit" value="Đăng nhập"/>*/}
+                          {/*</div>*/}
+                        {/*</div>*/}
+                      {/*</div>*/}
                     </div>
                   </div>
                 </div>
@@ -71,7 +72,7 @@ class Header extends React.Component {
           <div className="row">
             <div className="col-xs-5 col-sm-5 col-md-12 col-lg-12"/>
             <div className="col-xs-3 col-lg-2 col-md-3">
-              <img width="100%" src="images/logo2.png" alt=""/>
+              <Link to="/home"><img width="100%" src="../images/logo2.png" alt=""/></Link>
             </div>
             <div className="col-xs-12 col-lg-10 col-md-9">
               <div className="navbar">
@@ -92,44 +93,49 @@ class Header extends React.Component {
                       <nav className="collapse navbar-collapse" id="nav">
                         <ul className="nav navbar-nav" data-smartmenus-id="14959438921544436">
                           <li className="">
-                            <a href="#" title="TIN TỨC">
-                              GIỚI THIỆU CÔNG TY
-                            </a>
+                            <Link to="/home" title="TRANG CHỦ">
+                              TRANG CHỦ
+                            </Link>
                           </li>
                           <li className="">
-                            <a href="#" title="TIN TỨC">
-                              CHIẾN LƯỢC
-                            </a>
+                            <Link to="/about" title="GIỚI THIỆU">
+                              GIỚI THIỆU
+                            </Link>
                           </li>
                           <li className="">
-                            <a href="#" title="SẢN PHẨM"
+                            <Link to="#" title="SẢN PHẨM" style={{cursor: 'default'}}
                                className="item-haschild has-submenu" id="sm-14959438921544436-17" aria-haspopup="true"
                                aria-controls="sm-14959438921544436-18" aria-expanded="false">
                               SẢN PHẨM<span className="caret"/>
-                            </a>
+                            </Link>
                             <ul className="dropdown-menu" id="sm-14959438921544436-18" role="group" aria-hidden="true"
                                 aria-labelledby="sm-14959438921544436-17" aria-expanded="false">
                               <li className="">
-                                <a href="#" title="MỸ PHẨM">
+                                <Link to="/products" title="MỸ PHẨM">
                                   MỸ PHẨM
-                                </a>
+                                </Link>
                               </li>
                               <li className="">
-                                <a href="#" title="THỜI TRANG">
-                                  THỜI TRANG
-                                </a>
+                                <Link to="/products" title="THỰC PHẨM CHỨC NĂNG">
+                                  THỰC PHẨM CHỨC NĂNG
+                                </Link>
+                              </li>
+                              <li className="">
+                                <Link to="/products" title="CÔNG NGHỆ">
+                                  CÔNG NGHỆ
+                                </Link>
                               </li>
                             </ul>
                           </li>
                           <li className="">
-                            <a href="#" title="TIN TỨC">
+                            <Link to="/tintuc" title="TIN TỨC">
                               TIN TỨC
-                            </a>
+                            </Link>
                           </li>
                           <li className="">
-                            <a href="#" title="LIÊN HỆ">
+                            <Link to="/about" title="LIÊN HỆ">
                               LIÊN HỆ
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </nav>

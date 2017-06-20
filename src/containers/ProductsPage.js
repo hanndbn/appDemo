@@ -4,6 +4,7 @@ import Products from '../components/Products/Products';
 import NewFeeds from '../components/NewFeeds/NewFeeds';
 import CustomerComment from '../components/CustomerComment/CustomerComment';
 import Footer from '../components/Footer/Footer';
+import {connect} from 'react-redux';
 
 class ProductsPage extends React.Component {
   componentDidMount(){
@@ -20,7 +21,9 @@ class ProductsPage extends React.Component {
                 <h2>Sản phẩm</h2>
                 <div className="clearfix"/>
               </div>
-              <Products/>
+              <Products
+                productTitle=""
+                productList={this.props.products}/>
             </div>
           </div>
           <div className="container">
@@ -35,5 +38,20 @@ class ProductsPage extends React.Component {
     );
   }
 }
+const mapStateToProps = (state, ownProps) => {
+  return {
+    products: state.products,
+  };
+};
 
-export default ProductsPage;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // onComponentWillMount() {
+    //   dispatch(cartAction.toggleEditorView(false));
+    // },
+  }
+};
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsPage);

@@ -1,8 +1,7 @@
 import React from 'react';
-//import {Link} from 'react-router';
+import {Link} from 'react-router';
 import '../../styles/home-page.css';
-import {connect} from 'react-redux';
-
+import PropTypes from 'prop-types';
 class Products extends React.Component {
   constructor(props) {
     super(props);
@@ -17,19 +16,19 @@ class Products extends React.Component {
   render() {
     return (
       <div className="fproduct-home product-group clearfix global-title">
-        <h2 className="titleSpecial"><span>SẢN PHẨM CHỦ ĐẠO</span></h2>
+        <h2 className="titleSpecial"><span>{this.props.productTitle}</span></h2>
         <div className="row products">
           {
-            this.props.products.map((product, index) => {
+            this.props.productList.map((product, index) => {
               return (
                 <div className="col-lg-3 col-md-4 col-sm-4 col-xs-6" key={index}>
                   <div className="item">
                     <div className="thumb">
-                      <a target="_blank" href="#" title="Đầm blue tay sọc thắt nơ">
+                      <Link to={"/products/" + product.id} title={product.title}>
                         <img src={product.srcImage}
                              alt={product.title}/>
                         <span className="overlay"/>
-                      </a>
+                      </Link>
                     </div>
                     <div className="caption">
                       <h3 className="title">
@@ -51,18 +50,9 @@ class Products extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    products: state.products,
-  };
+Products.propTypes = {
+  productList: PropTypes.array.isRequired,
+  productTitle : PropTypes.string.isRequired,
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    // onComponentWillMount() {
-    //   dispatch(cartAction.toggleEditorView(false));
-    // },
-  }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default Products;

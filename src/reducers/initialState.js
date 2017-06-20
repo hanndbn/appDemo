@@ -1,11 +1,25 @@
 export default {
   products: [
     {
-      idProduct: '00',
+      id: 'product1',
       title: "Đầm blue tay sọc thắt nơ",
       srcImage: 'http://www.remoingay.com/uploads/product/product_thumb/20170527090514_24256.jpg',
       price: '2000000',
       countViews: 95
+    },
+    {
+      id: 'product2',
+      title: "Đầm pinky thắt nơ",
+      srcImage: 'http://www.remoingay.com/uploads/product/product_thumb/20170417160452_77087.jpg',
+      price: '3000000',
+      countViews: 96
+    },
+    {
+      id: 'product3',
+      title: "Đầm suông viền phối màu",
+      srcImage: 'http://www.remoingay.com/uploads/product/product_thumb/20170619150601_68318.jpg',
+      price: '4000000',
+      countViews: 97
     },
   ],
   productDetail: {
@@ -20,10 +34,24 @@ export default {
       title: 'Bí quyết chăm sóc sắc đẹp từ Hoa Cúc Trắng',
       timePost: '18/05/2017',
       srcImage: 'http://princesswhite.vn/upload/baiviet/480x360x1/lamdeppxno-3134.jpg?1496028333855',
-      sortDescription: `Cúc trắng có tên khoa học Chrysanthemum morifolium Ramat (Chrysanthemum sinese
+      subtitle: `Cúc trắng có tên khoa học Chrysanthemum morifolium Ramat (Chrysanthemum sinese
                                   Sabine),
                                   thuộc
-                                  họ Cúc (Asteraceae), có vị đắng, cay, tính mát, tác dụng thanh nhiệt, hạ ...`
+                                  họ Cúc (Asteraceae), có vị đắng, cay, tính mát, tác dụng thanh nhiệt, hạ`
+    },
+    {
+      id: 'new2',
+      title: 'Học ngay 6 cách thải độc cơ thể hiệu quả vào mùa hè',
+      timePost: '16/06/2017',
+      srcImage: 'http://princesswhite.vn/upload/baiviet/480x360x1/trimundaudenomuihieuqua1-1708.jpg?1497929682965',
+      subtitle: `Thời tiết mùa hè bướng bỉnh luôn gây ra nhiều vấn đề độc hại cho cơ thể và làn da của bạn. Chất độc có mặt khắp nơi xung quanh ta như trong không khí`
+    },
+    {
+      id: 'new3',
+      title: 'Những công dụng tuyệt vời cho làn da trắng sáng từ nước vo gạo',
+      timePost: '16/06/2017',
+      srcImage: 'http://princesswhite.vn/upload/baiviet/480x360x1/cachlamtrangdabangnuocvogao4-2779.jpg?1497929848329',
+      subtitle: `Hàng ngày trong quá trình vo gạo nấu cơm chắc hẳn đã rất nhiều người lãng phí nước vo gạo mà không biết đến tác dụng làm đẹp da cực kỳ hiệu quả của nó. Là một loại nước phổ biến nhưng lại chứa rất nhiều dưỡng chất và vitamin có lợi cho da. Nước vo gạo không chỉ có tác dụng làm sạch da, loại bỏ hết chất bẩn trên bề mặt mà còn nuôi dưỡng da ngày càng trắng sáng và mịn màng. Hãy cùng Princess White tìm hiểu kỹ hơn về loại “nước thần thánh” này nhé!`
     }
   ],
   newsDetail: {
