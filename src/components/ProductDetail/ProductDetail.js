@@ -4,6 +4,16 @@ import '../../styles/home-page.css';
 import {connect} from 'react-redux';
 
 class ProductDetail extends React.Component {
+  constructor(props){
+    super(props);
+    debugger
+  }
+  componentWillMount() {
+    debugger;
+    let id = this.props.params[id];
+    console.log(id);
+  }
+
   render() {
     return (
       <div className="container">
@@ -14,27 +24,8 @@ class ProductDetail extends React.Component {
                 <div className="photo">
                   <div className="preview"><
                     img itemProp="image"
-                        src={this.props.productDetail.srcImage}
-                        alt={this.props.productDetail.productTitle} title={this.props.productDetail.productTitle}/>
-                  </div>
-                  <div className="thumbs" hidden>
-                    <div className="inner">
-                      <ul>
-                        <li>
-                          <a href="#"
-                             alt="#" title="#">
-                            <img src="#"
-                                 alt="#" title="#"/>
-                            <span className="frame"/>
-                          </a>
-                        </li>
-                        <li><a href="#"
-                               alt="#" title="#"><img
-                          src="#"
-                          alt="#" title="#"/><span
-                          className="frame"/></a></li>
-                      </ul>
-                    </div>
+                        src={'http://localhost:8080'+this.props.productDetail.imageUrl}
+                        alt={this.props.productDetail.name} title={this.props.productDetail.name}/>
                   </div>
                 </div>
 
@@ -46,7 +37,7 @@ class ProductDetail extends React.Component {
                   <div className="clearfix"/>
                 </div>
                 <div className="editor">
-                  {this.props.productDetail.productInfo}
+                  {this.props.productDetail.characteristic}
                 </div>
               </div>
               <div className="product-info">
@@ -55,7 +46,7 @@ class ProductDetail extends React.Component {
                   <div className="clearfix"/>
                 </div>
                 <div className="editor">
-                  {this.props.productDetail.productDescription}
+                  {this.props.productDetail.detail}
                 </div>
 
               </div>

@@ -18,7 +18,7 @@ class NewFeeds extends React.Component {
                 <div className="content-news">
                   <div className="simply-scroll simply-scroll-container">
                     <div className="simply-scroll-clip">
-                      <div className="simply-scroll-list" style={{height: '2088px'}}>
+                      <div className="simply-scroll-list" style={{height: '2088px'}} id="scrollerDiv">
                         <ul id="scroller" className="simply-scroll-list" style={{height: '1044px'}}>
                           {
                             this.props.news.map((item, index) => {

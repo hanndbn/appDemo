@@ -2,31 +2,31 @@ export default {
   products: [
     {
       id: 'product1',
-      title: "Đầm blue tay sọc thắt nơ",
-      srcImage: 'http://www.remoingay.com/uploads/product/product_thumb/20170527090514_24256.jpg',
+      name: "Đầm blue tay sọc thắt nơ",
+      imageUrl: 'http://www.remoingay.com/uploads/product/product_thumb/20170527090514_24256.jpg',
       price: '2000000',
       countViews: 95
     },
     {
       id: 'product2',
-      title: "Đầm pinky thắt nơ",
-      srcImage: 'http://www.remoingay.com/uploads/product/product_thumb/20170417160452_77087.jpg',
+      name: "Đầm pinky thắt nơ",
+      imageUrl: 'http://www.remoingay.com/uploads/product/product_thumb/20170417160452_77087.jpg',
       price: '3000000',
       countViews: 96
     },
     {
       id: 'product3',
-      title: "Đầm suông viền phối màu",
-      srcImage: 'http://www.remoingay.com/uploads/product/product_thumb/20170619150601_68318.jpg',
+      name: "Đầm suông viền phối màu",
+      imageUrl: 'http://www.remoingay.com/uploads/product/product_thumb/20170619150601_68318.jpg',
       price: '4000000',
       countViews: 97
     },
   ],
   productDetail: {
-    productTitle: 'Đầm sơ mi cổ trụ dây rút eo',
-    srcImage: 'http://www.remoingay.com/uploads/product/product_slide/20170530160538_73094.jpg',
-    productInfo: `Đầm sơ mi cổ trụ dây rút eo khóe léo khoe vóc dáng mềm mại và gu thời trang tinh tế, dễ dàng phối đồ và diện trong nhiều hoàn cảnh khác nhau. Cho bạn gái thêm phần tự tin với phong cách ngọt ngào cuốn hút`,
-    productDescription: 'Với những bạn nữ yêu thích phong cách thời trang dạo phố, lịch sự nhưng vẫn trẻ trung năng động thì đầm sơ mi cổ trụ dây rút eo này sẽ khiến các bạn hài lòng. Đầm với thiết kế đơn giản được cách điệu với dáng cổ trụ tươi mới cùng tay dài để mang lại nét thanh lịch và hiện đại cho các cô nàng thời thượng. Đầm có kiểu dáng form rộng nên hoàn toàn có thể phù hợp với nhiều kiểu dáng khác nhau nhằm che đi những khuyết điểm về ba vòng không cân đối. Chất liệu kate mỹ mềm mại lại rất thông thoáng đây dường như là chất liệu hoàn toàn thích hợp với thời tiết nắng nóng của mùa hè hiện nay. Vì thế để giúp phái đẹp có được sự lựa chọn nhanh và chính xác nhất remoingay xin giới thiệu đến các bạn mẫu sản phẩm đầm sơ mi cổ trụ dây rút eo mới nhất của shop. Hãy cùng xem sản phẩm có gì nổi bật nhé!'
+    name: 'Đầm sơ mi cổ trụ dây rút eo',
+    imageUrl: '/static/images/product/20170527090514_24256.jpg',
+    characteristic: `Đầm sơ mi cổ trụ dây rút eo khóe léo khoe vóc dáng mềm mại và gu thời trang tinh tế, dễ dàng phối đồ và diện trong nhiều hoàn cảnh khác nhau. Cho bạn gái thêm phần tự tin với phong cách ngọt ngào cuốn hút`,
+    detail: 'Với những bạn nữ yêu thích phong cách thời trang dạo phố, lịch sự nhưng vẫn trẻ trung năng động thì đầm sơ mi cổ trụ dây rút eo này sẽ khiến các bạn hài lòng. Đầm với thiết kế đơn giản được cách điệu với dáng cổ trụ tươi mới cùng tay dài để mang lại nét thanh lịch và hiện đại cho các cô nàng thời thượng. Đầm có kiểu dáng form rộng nên hoàn toàn có thể phù hợp với nhiều kiểu dáng khác nhau nhằm che đi những khuyết điểm về ba vòng không cân đối. Chất liệu kate mỹ mềm mại lại rất thông thoáng đây dường như là chất liệu hoàn toàn thích hợp với thời tiết nắng nóng của mùa hè hiện nay. Vì thế để giúp phái đẹp có được sự lựa chọn nhanh và chính xác nhất remoingay xin giới thiệu đến các bạn mẫu sản phẩm đầm sơ mi cổ trụ dây rút eo mới nhất của shop. Hãy cùng xem sản phẩm có gì nổi bật nhé!'
   },
   news: [
     {

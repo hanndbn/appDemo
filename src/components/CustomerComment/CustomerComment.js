@@ -17,8 +17,8 @@ class CustomerComment extends React.Component {
                   <div className="clearfix"/>
                   <div className="content-ykien">
                     <div className="bx-wrapper bx-wrapper1">
-                      <div className="bx-viewport bx-viewport1" >
-                        <ul className="bxslider bxslider1">
+                      <div className="bx-viewport bx-viewport1" id="bxslider1Div">
+                        <ul id= "bxslider1" className="bxslider bxslider1">
                           <li className="bx-clone bx-clone1">
                             <div className="">
                               <div className="image-ykien">
@@ -187,9 +187,9 @@ class CustomerComment extends React.Component {
                           <div className="bx-pager-item"><a href="" data-slide-index="1" className="bx-pager-link">2</a>
                           </div>
                         </div>
-                        <div className="bx-controls-direction">
-                          <a className="bx-prev" href="">Prev</a><a
-                          className="bx-next" href="">Next</a></div>
+                        {/*<div className="bx-controls-direction">*/}
+                          {/*<a className="bx-prev" href="">Prev</a><a*/}
+                          {/*className="bx-next" href="">Next</a></div>*/}
                       </div>
                     </div>
                   </div>

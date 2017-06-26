@@ -82,8 +82,9 @@ class Banner extends React.Component {
               </ul>
             </div>
             <div className="bx-controls bx-has-controls-direction">
-              <div className="bx-controls-direction"><a className="bx-prev" href="">Prev</a><a className="bx-next"
-                                                                                               href="">Next</a>
+              <div className="bx-controls-direction">
+                <a className="bx-prev" style={{background: 'none'}} id="slider-prev">Prev</a>
+                <a className="bx-next" style={{background: 'none'}} id="slider-next">Next</a>
               </div>
             </div>
           </div>
