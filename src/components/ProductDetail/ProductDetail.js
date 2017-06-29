@@ -4,14 +4,12 @@ import '../../styles/home-page.css';
 import {connect} from 'react-redux';
 
 class ProductDetail extends React.Component {
-  constructor(props){
-    super(props);
-    debugger
+  constructor(props, context) {
+    super(props, context);
   }
-  componentWillMount() {
-    debugger;
-    let id = this.props.params[id];
-    console.log(id);
+  componentDidMount() {
+    //let id = this.props.params[id];
+    //console.log(1);
   }
 
   render() {
@@ -60,7 +58,6 @@ class ProductDetail extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-
     productDetail: state.productDetail,
   };
 };

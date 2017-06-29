@@ -24,7 +24,7 @@ class Products extends React.Component {
                 <div className="col-lg-3 col-md-4 col-sm-4 col-xs-6" key={index}>
                   <div className="item">
                     <div className="thumb">
-                      <Link to={"/products/" + product.id} title={product.name}>
+                      <Link to={`/products/${product.id}`} title={product.name}>
                         <img src={'http://localhost:8080'+product.imageUrl}
                              alt={product.name}/>
                         <span className="overlay"/>
@@ -32,7 +32,7 @@ class Products extends React.Component {
                     </div>
                     <div className="caption" style={{textAlign:'center'}}>
                       <h3 className="title">
-                        <Link to={'/products/' + product.id} title={product.name}>{product.name}</Link>
+                        <Link to={`/products/${product.id}`} title={product.name}>{product.name}</Link>
                       </h3>
                       <p className="meta">
                         <span className="price">{this.formatMoney(product.price)}đ</span>

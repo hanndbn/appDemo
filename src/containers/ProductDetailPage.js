@@ -6,8 +6,17 @@ import NewFeeds from '../components/NewFeeds/NewFeeds';
 import CustomerComment from '../components/CustomerComment/CustomerComment';
 import Footer from '../components/Footer/Footer';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {bindActionCreators} from 'redux';
+import * as actions from '../actions/productsActions';
 
 class ProductDetailPage extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+  }
+  componentWillMount(){
+    this.actions.loadProductDetail(this.props.id);
+  }
   render() {
     return (
       <div>
@@ -29,18 +38,22 @@ class ProductDetailPage extends React.Component {
     );
   }
 }
+
+ProductDetailPage.contextTypes = {
+  router: PropTypes.object
+};
+
 const mapStateToProps = (state, ownProps) => {
   return {
+    id: ownProps.params.id,
     products: state.products,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // onComponentWillMount() {
-    //   dispatch(cartAction.toggleEditorView(false));
-    // },
-  }
+    actions: bindActionCreators(actions, dispatch)
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailPage);

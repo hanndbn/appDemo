@@ -8,12 +8,31 @@ export function loadProductsSuccess(products) {
   };
 }
 
+export function loadProductsDetailSuccess(productDetail) {
+  return {
+    type: types.LOAD_PRODUCT_DETAIL_SUCCESS,
+    productDetail
+  };
+}
+
 
 export function loadProducts() {
   return function (dispatch) {
-    return axios.post('http://localhost:8080/api/getAllProduct')
+    return axios.get('http://localhost:8080/api/getAllProduct')
       .then(function (response) {
         dispatch(loadProductsSuccess(response.data.resultData))
+        console.log(response);
+      }).catch(function (error) {
+        console.log(error);
+      });
+  };
+}
+
+export function loadProductDetail(id) {
+  return function (dispatch) {
+    return axios.get('http://localhost:8080/api/getProductById?id=' + id)
+      .then(function (response) {
+        dispatch(loadProductsDetailSuccess(response.data.resultData));
         console.log(response);
       }).catch(function (error) {
         console.log(error);
