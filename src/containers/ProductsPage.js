@@ -5,10 +5,13 @@ import NewFeeds from '../components/NewFeeds/NewFeeds';
 import CustomerComment from '../components/CustomerComment/CustomerComment';
 import Footer from '../components/Footer/Footer';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as actions from '../actions/productsActions';
 
 class ProductsPage extends React.Component {
   componentDidMount(){
     $('.titleSpecial').hide();
+    this.props.actions.loadProducts();
   }
   render() {
     return (
@@ -46,9 +49,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // onComponentWillMount() {
-    //   dispatch(cartAction.toggleEditorView(false));
-    // },
+    actions: bindActionCreators(actions, dispatch)
   }
 };
 

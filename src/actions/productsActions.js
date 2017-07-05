@@ -1,5 +1,7 @@
 import * as types from '../constants/actionTypes';
+import {} from '../constants/actionTypes';
 import axios from 'axios';
+import {browserHistory} from 'react-router'
 
 export function loadProductsSuccess(products) {
   return {
@@ -15,26 +17,43 @@ export function loadProductsDetailSuccess(productDetail) {
   };
 }
 
+export function clearProductsDetails() {
+  return {
+    type: types.CLEAR_PRODUCTS_DETAIL
+  };
+}
+
+
 
 export function loadProducts() {
   return function (dispatch) {
     return axios.get('http://localhost:8080/api/getAllProduct')
       .then(function (response) {
-        dispatch(loadProductsSuccess(response.data.resultData))
-        console.log(response);
+        if(response.data.result) {
+          dispatch(loadProductsSuccess(response.data.resultData))
+        }else {
+          browserHistory.push('/');
+        }
       }).catch(function (error) {
+        browserHistory.push('/');
         console.log(error);
       });
   };
 }
 
+
 export function loadProductDetail(id) {
   return function (dispatch) {
+    dispatch(clearProductsDetails());
     return axios.get('http://localhost:8080/api/getProductById?id=' + id)
       .then(function (response) {
-        dispatch(loadProductsDetailSuccess(response.data.resultData));
-        console.log(response);
+        if(response.data.result) {
+          dispatch(loadProductsDetailSuccess(response.data.resultData));
+        }else{
+          browserHistory.push('/products');
+        }
       }).catch(function (error) {
+        browserHistory.push('/');
         console.log(error);
       });
   };

@@ -11597,7 +11597,7 @@ a.sb-button:hover {
 }
 
 .product-detail .top-detail .photo .preview {
-  height: 575px;
+  height: 500px;
   overflow: hidden;
   margin-bottom: 10px;
   text-align: center
@@ -13947,7 +13947,7 @@ a.sb-button:hover {
 }
 
 .top-detail {
-  min-height: 705px
+  /*min-height: 705px*/
 }
 
 .addthis {

@@ -35,7 +35,7 @@ class ProductDetail extends React.Component {
                   <div className="clearfix"/>
                 </div>
                 <div className="editor">
-                  {this.props.productDetail.characteristic}
+                  <div dangerouslySetInnerHTML={{ __html: this.props.productDetail.characteristic }} />
                 </div>
               </div>
               <div className="product-info">
@@ -44,7 +44,8 @@ class ProductDetail extends React.Component {
                   <div className="clearfix"/>
                 </div>
                 <div className="editor">
-                  {this.props.productDetail.detail}
+                  <div dangerouslySetInnerHTML={{ __html: this.props.productDetail.detail }} />
+
                 </div>
 
               </div>

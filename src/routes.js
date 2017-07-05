@@ -19,6 +19,7 @@ export default (
     <Route path="tintuc" component={TinTuc}/>
     <Route path="tintuc/:id" component={TinTucDetail}/>
     <Route path="about" component={AboutPage}/>
+    <Route path="404" component={NotFoundPage}/>
     <Route path="*" component={NotFoundPage}/>
   </Route>
 );

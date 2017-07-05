@@ -15,7 +15,7 @@ class Products extends React.Component {
 
   render() {
     return (
-      <div className="fproduct-home product-group clearfix global-title">
+      <div className="container fproduct-home product-group clearfix global-title">
         <h2 className="titleSpecial"><span>{this.props.productTitle}</span></h2>
         <div className="row products">
           {
