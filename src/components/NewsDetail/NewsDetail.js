@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import '../../styles/home-page.css';
 import {connect} from 'react-redux';
-
+import moment from 'moment';
 class NewsDetail extends React.Component {
   render() {
     return (
@@ -16,21 +16,18 @@ class NewsDetail extends React.Component {
                   <div className="date">{this.props.newsDetail.cdate}</div>
                 </div>
                 <div className="description">
-                  {this.props.newsDetail.subtitle}
+                  {this.props.newsDetail.subTitle}
                 </div>
                 <div className="content contentNewsDetails">
 
                   <div className="text-center">
-                    <figure className="caption" style={{display: 'inline-block', paddingTop: '10px', paddingBottom: '10px'}}><img alt="" height="435"
-                                                                                       src={this.props.newsDetail.srcImage}
-                                                                                       width="695"/>
-                      <figcaption className="figcaption">{this.props.newsDetail.title}</figcaption>
+                    <figure className="caption"><img alt="" height="435"
+                                                     src={'http://localhost:8080'+this.props.newsDetail.imageUrl}
+                                                     width="695"/>
+                      <figcaption className="figcaption" style={{fontStyle: 'italic', paddingTop: '10px', paddingBottom: '10px'}}>{this.props.newsDetail.title}</figcaption>
                     </figure>
                   </div>
-
-                  <p>
-                    {this.props.newsDetail.content}
-                  </p>
+                  <div dangerouslySetInnerHTML={{ __html: this.props.newsDetail.content }} />
                   <br/>
                   <div className="description" style={{textAlign: 'right'}}>
                     {this.props.newsDetail.author}
@@ -41,9 +38,9 @@ class NewsDetail extends React.Component {
                   <div className="other-news">
                     <h3>Thông tin khác</h3>
                     <ul>
-                      {this.props.news.map((item, index)=>{
+                      {this.props.topNews.filter((item)=>{return item.id != this.props.id}).map((item, index)=>{
                         return(
-                          <li key={index}>»&nbsp;<Link to={"/tintuc/" + item.id} title={item.title}>{item.title}</Link> <span className="date">({item.timePost})</span></li>
+                          <li key={index}>»&nbsp;<Link to={"/tintuc/" + item.id} title={item.title}>{item.title}</Link> <span className="date">({moment(item.cdate, 'YYYY-MM-DD').format('DD-MM-YYYY')})</span></li>
                         )
                       })}
                     </ul>
@@ -61,8 +58,10 @@ class NewsDetail extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    id: state.newsDetail.id,
     newsDetail: state.newsDetail,
-    news : state.news
+    news : state.news.data,
+    topNews: state.news.topNews
   };
 };
 

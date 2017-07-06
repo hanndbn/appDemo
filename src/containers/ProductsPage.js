@@ -11,7 +11,7 @@ import * as actions from '../actions/productsActions';
 class ProductsPage extends React.Component {
   componentDidMount(){
     $('.titleSpecial').hide();
-    this.props.actions.loadProducts();
+    this.props.actions.loadProducts(10,0);
   }
   render() {
     return (
@@ -43,14 +43,14 @@ class ProductsPage extends React.Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    products: state.products,
+    products: state.products.data,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators(actions, dispatch)
-  }
+  };
 };
 
 

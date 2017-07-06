@@ -4,8 +4,18 @@ import NewsDetail from '../components/NewsDetail/NewsDetail';
 import NewFeeds from '../components/NewFeeds/NewFeeds';
 import CustomerComment from '../components/CustomerComment/CustomerComment';
 import Footer from '../components/Footer/Footer';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {bindActionCreators} from 'redux';
+import * as actions from '../actions/articlesActions';
 
 class TinTucDetail extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+  }
+  componentWillMount(){
+    this.props.actions.loadArticleDetail(this.props.id);
+  }
   render() {
     return (
       <div>
@@ -25,4 +35,21 @@ class TinTucDetail extends React.Component {
   }
 }
 
-export default TinTucDetail;
+TinTucDetail.contextTypes = {
+  router: PropTypes.object
+};
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    id: ownProps.params.id,
+    news: state.news.data,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TinTucDetail);

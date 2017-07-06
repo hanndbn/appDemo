@@ -4,6 +4,9 @@ import '../../styles/home-page.css';
 import {connect} from 'react-redux';
 import Pagination from 'rc-pagination';
 import '../../../node_modules/rc-pagination/assets/index.css';
+import moment from 'moment';
+import {bindActionCreators} from 'redux';
+import * as actions from '../../actions/articlesActions';
 class News extends React.Component {
   constructor(props){
     super(props);
@@ -13,10 +16,14 @@ class News extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
   onChange(page){
-    console.log(page);
+    window.scrollTo(0,0);
     this.setState({
       page: page
     });
+    this.props.actions.loadArticles(10,(page - 1)*10);
+  }
+  componentWillMount(){
+    this.props.actions.loadArticles(10,(this.state.page - 1)*10);
   }
   render() {
     return (
@@ -31,8 +38,7 @@ class News extends React.Component {
                 <div className="">
                   {
                     this.props.news.map((item, index) => {
-
-                      let subtitle = item.subtitle.substring(0, item.subtitle.indexOf('.', 250) > 0 ?  item.subtitle.indexOf('.', 250) : item.subtitle.length);
+                      let subtitle = item.subTitle.substring(0, item.subTitle.indexOf('.', 250) > 0 ?  item.subTitle.indexOf('.', 250) : item.subTitle.length);
                       return (
                         <div className="news-item fadeInDown wow news-items-details" data-wow-offset="50"
                              data-wow-duration="3"
@@ -49,7 +55,7 @@ class News extends React.Component {
                                 <Link to={"/tintuc/" + item.id}
                                    title={item.title}>
                                   <img className="img-responsive image-thumb"
-                                       src={item.srcImage}
+                                       src={'http://localhost:8080'+item.imageUrl}
                                        alt={item.title}
                                   /> </Link>
                               </div>
@@ -60,13 +66,13 @@ class News extends React.Component {
                                   <div className="clearfix"/>
                                 </div>
                                 <div className="post-detail">
-                                  <a>CÔNG TY TNHH DFG </a> - {item.timePost}
+                                  <a>CÔNG TY TNHH DFG </a> - {moment(item.cdate, 'YYYY-MM-DD').format('DD-MM-YYYY')}
                                 </div>
                                 <div className="text-blog">
                                   {subtitle}...
                                   <div className="clearfix"/>
-                                  <a href="#"
-                                     title={item.title}><em>Xem thêm</em></a>
+                                  <Link to={"/tintuc/" + item.id}
+                                     title={item.title}><em>Xem thêm</em></Link>
                                 </div>
                               </div>
                             </div>
@@ -81,7 +87,7 @@ class News extends React.Component {
           </div>
           <div className="clearfix"/>
           <div style={{float: 'right', paddingBottom: '20px'}}>
-            <Pagination onChange={this.onChange} current={this.state.page} total={50} pageSize={10} />
+            <Pagination onChange={this.onChange} current={this.state.page} total={this.props.numberPage} pageSize={10} />
           </div>
         </div>
       </div>
@@ -92,16 +98,15 @@ class News extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    news: state.news,
+    news: state.news.data,
+    numberPage: state.news.numberPage,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // onComponentWillMount() {
-    //   dispatch(cartAction.toggleEditorView(false));
-    // },
-  }
+    actions: bindActionCreators(actions, dispatch)
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(News);

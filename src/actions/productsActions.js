@@ -3,10 +3,11 @@ import {} from '../constants/actionTypes';
 import axios from 'axios';
 import {browserHistory} from 'react-router'
 
-export function loadProductsSuccess(products) {
+export function loadProductsSuccess(data, numberPage) {
   return {
     type: types.LOAD_PRODUCTS_SUCCESS,
-    products
+    data,
+    numberPage
   };
 }
 
@@ -25,12 +26,12 @@ export function clearProductsDetails() {
 
 
 
-export function loadProducts() {
+export function loadProducts(limit, offset) {
   return function (dispatch) {
-    return axios.get('http://localhost:8080/api/getAllProduct')
+    return axios.get('http://localhost:8080/api/getProductPage?limit=' + limit + '&offset=' + offset)
       .then(function (response) {
         if(response.data.result) {
-          dispatch(loadProductsSuccess(response.data.resultData))
+          dispatch(loadProductsSuccess(response.data.resultData, response.data.numberRecord));
         }else {
           browserHistory.push('/');
         }

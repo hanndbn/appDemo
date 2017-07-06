@@ -22,7 +22,7 @@ class NewFeeds extends React.Component {
                         <ul id="scroller" className="simply-scroll-list" style={{height: '1044px'}}>
                           {
                             this.props.news.map((item, index) => {
-                              let subtitle = item.subtitle.substring(0, item.subtitle.indexOf('.', 50) > 0 ?  item.subtitle.indexOf('.', 50) : item.subtitle.length);
+                              let subtitle = item.subTitle.substring(0, item.subTitle.indexOf('.', 50) > 0 ?  item.subTitle.indexOf('.', 50) : item.subTitle.length);
                               return(
                                   <li key={index}>
                                     <div className="col-xs-12 col-md-12 item-news">
@@ -31,7 +31,7 @@ class NewFeeds extends React.Component {
                                           <div className="row">
                                             <div className="image">
                                               <Link to={"/tintuc/" + item.id} title={item.title}><img
-                                                src={item.srcImage}
+                                                src={'http://localhost:8080'+item.imageUrl}
                                                 className="img-responsive"
                                                 alt={item.title}/></Link></div>
                                           </div>
@@ -69,7 +69,7 @@ class NewFeeds extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    news: state.news,
+    news: state.news.topNews,
   };
 };
 

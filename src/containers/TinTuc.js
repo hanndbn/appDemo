@@ -4,8 +4,15 @@ import News from '../components/News/News';
 import NewFeeds from '../components/NewFeeds/NewFeeds';
 import CustomerComment from '../components/CustomerComment/CustomerComment';
 import Footer from '../components/Footer/Footer';
+import {bindActionCreators} from 'redux';
+import * as actions from '../actions/articlesActions';
+import {connect} from 'react-redux';
+
 
 class TinTuc extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+  }
   render() {
     return (
       <div>
@@ -25,4 +32,16 @@ class TinTuc extends React.Component {
   }
 }
 
-export default TinTuc;
+const mapStateToProps = (state, ownProps) => {
+  return {
+
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TinTuc);

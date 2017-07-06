@@ -2,6 +2,9 @@ import React from 'react';
 import {Link} from 'react-router';
 import '../../styles/home-page.css';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as actions from '../../actions/productsActions';
 class Products extends React.Component {
   constructor(props) {
     super(props);
@@ -54,5 +57,16 @@ Products.propTypes = {
   productList: PropTypes.array.isRequired,
   productTitle : PropTypes.string.isRequired,
 };
+const mapStateToProps = (state, ownProps) => {
+  return {
 
-export default Products;
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
