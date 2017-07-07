@@ -1,7 +1,9 @@
 export default {
   products: {
+    topProducts: [],
     data: [],
     numberPage: 1,
+    currentPage: 1,
   },
   productDetail: {},
   news: {
@@ -10,7 +12,7 @@ export default {
    numberPage: 1,
   },
   newsDetail: {},
-  numberPageProducts: 1,
+  categories: [],
   fuelSavings: {
     newMpg: '',
     tradeMpg: '',

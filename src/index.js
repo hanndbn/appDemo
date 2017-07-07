@@ -7,16 +7,19 @@ import { AppContainer } from 'react-hot-loader';
 import Root from './components/Root';
 
 import configureStore from './store/configureStore';
-import {loadProducts} from './actions/productsActions';
-import {loadArticles, loadTopArticles} from './actions/articlesActions';
-require('./favicon.ico'); // Tell webpack to load favicon.ico
-//import './styles/styles.scss'; // Yep, that's right. You can import SASS/CSS files too! Webpack will run the associated loader and plug this into the page.
+import {loadTopProducts, loadProducts} from './actions/productsActions';
+import {loadTopArticles} from './actions/articlesActions';
+import {loadCategories} from './actions/categoryActions';
+
+// require('./favicon.ico'); // Tell webpack to load favicon.ico
+// import './styles/styles.scss'; // Yep, that's right. You can import SASS/CSS files too! Webpack will run the associated loader and plug this into the page.
 import { syncHistoryWithStore } from 'react-router-redux';
 
 const store = configureStore();
+store.dispatch(loadTopProducts());
 store.dispatch(loadProducts(10,0));
-store.dispatch(loadArticles(10,0));
-store.dispatch(loadTopArticles(10,0));
+store.dispatch(loadTopArticles());
+store.dispatch(loadCategories());
 // Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(browserHistory, store);
 

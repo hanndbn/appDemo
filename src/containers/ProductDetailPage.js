@@ -2,8 +2,8 @@ import React from 'react';
 import Header from '../components/Header/Header';
 import ProductDetail from '../components/ProductDetail/ProductDetail';
 import Products from '../components/Products/Products';
-import NewFeeds from '../components/NewFeeds/NewFeeds';
-import CustomerComment from '../components/CustomerComment/CustomerComment';
+// import NewFeeds from '../components/NewFeeds/NewFeeds';
+// import CustomerComment from '../components/CustomerComment/CustomerComment';
 import Footer from '../components/Footer/Footer';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -26,12 +26,12 @@ class ProductDetailPage extends React.Component {
           <Products productTitle="SẢN PHẦM TƯƠNG TỰ"
                     productList = {this.props.products.filter((item)=>{return item.id != this.props.id})}
           />
-          <div className="container">
-            <div className="row">
-              <CustomerComment/>
-              <NewFeeds/>
-            </div>
-          </div>
+          {/*<div className="container">*/}
+            {/*<div className="row">*/}
+              {/*<CustomerComment/>*/}
+              {/*<NewFeeds/>*/}
+            {/*</div>*/}
+          {/*</div>*/}
         </div>
         <Footer/>
       </div>
@@ -46,7 +46,7 @@ ProductDetailPage.contextTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.params.id,
-    products: state.products,
+    products: state.products.topProducts,
   };
 };
 

@@ -49,7 +49,7 @@ class HomePage extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    products: state.products.data,
+    products: state.products.topProducts,
   };
 };
 

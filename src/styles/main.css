@@ -18056,6 +18056,13 @@ a.sb-button:hover {
   padding-right: 0 !important;
 }
 
+.productDetailSpecial{
+  font-size: 20px !important;
+  font-family: initial !important;
+  color: black !important;
+}
+
+
 
 .topbar .pull-left ul li a {
   color: #fff;
@@ -18091,6 +18098,10 @@ a.sb-button:hover {
   .menuTitle {
     margin-top: 0px;
   }
+}
+
+.header-categories{
+  text-transform: uppercase;
 }
 
 .global-title h2:after, .title-global h2:after,.global-title h2:before, .title-global h2:before{

@@ -12,10 +12,12 @@ import NotFoundPage from './components/NotFoundPage';
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={ProductsPage}/>
+    <IndexRoute component={HomePage}/>
     <Route path="home" component={HomePage}/>
-    <Route path="products" component={ProductsPage}/>
-    <Route path="products/:id" component={ProductDetailPage}/>
+    <Route path="sanpham" component={ProductsPage}/>
+    <Route path="sanpham/:category" component={ProductsPage}/>
+    <Route path="sanpham/:category/:id" component={ProductDetailPage}/>
+
     <Route path="tintuc" component={TinTuc}/>
     <Route path="tintuc/:id" component={TinTucDetail}/>
     <Route path="about" component={AboutPage}/>

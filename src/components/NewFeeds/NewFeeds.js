@@ -22,34 +22,34 @@ class NewFeeds extends React.Component {
                         <ul id="scroller" className="simply-scroll-list" style={{height: '1044px'}}>
                           {
                             this.props.news.map((item, index) => {
-                              let subtitle = item.subTitle.substring(0, item.subTitle.indexOf('.', 50) > 0 ?  item.subTitle.indexOf('.', 50) : item.subTitle.length);
-                              return(
-                                  <li key={index}>
-                                    <div className="col-xs-12 col-md-12 item-news">
-                                      <div className="row">
-                                        <div className="col-xs-4">
-                                          <div className="row">
-                                            <div className="image">
-                                              <Link to={"/tintuc/" + item.id} title={item.title}><img
-                                                src={'http://localhost:8080'+item.imageUrl}
-                                                className="img-responsive"
-                                                alt={item.title}/></Link></div>
-                                          </div>
+                              let subtitle = item.subTitle.substring(0, item.subTitle.indexOf('.', 50) > 0 ? item.subTitle.indexOf('.', 50) : item.subTitle.length);
+                              return (
+                                <li key={index}>
+                                  <div className="col-xs-12 col-md-12 item-news">
+                                    <div className="row">
+                                      <div className="col-xs-4">
+                                        <div className="row">
+                                          <div className="image">
+                                            <Link to={"/tintuc/" + item.id} title={item.title}><img
+                                              src={'http://localhost:8080' + item.imageUrl}
+                                              className="img-responsive"
+                                              alt={item.title}/></Link></div>
                                         </div>
-                                        <div className="col-xs-8">
-                                          <div className="row-8">
-                                            <div className="name-news"><Link
-                                              to={"/tintuc/" + item.id}
-                                              title={item.title}>{item.title}</Link></div>
-                                            <div className="desc-news">
-                                              {subtitle}...
-                                            </div>
+                                      </div>
+                                      <div className="col-xs-8">
+                                        <div className="row-8">
+                                          <div className="name-news"><Link
+                                            to={"/tintuc/" + item.id}
+                                            title={item.title}>{item.title}</Link></div>
+                                          <div className="desc-news">
+                                            {subtitle}...
                                           </div>
                                         </div>
                                       </div>
                                     </div>
-                                  </li>
-                                );
+                                  </div>
+                                </li>
+                              );
                             })
                           }
                         </ul>

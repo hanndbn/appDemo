@@ -48,23 +48,6 @@ export function loadArticles(limit, offset) {
   };
 }
 
-export function loadTopArticles() {
-  return function (dispatch) {
-    return axios.get('http://localhost:8080/api/getArticlePage?limit=10&offset=0')
-      .then(function (response) {
-        if(response.data.result) {
-          dispatch(loadTopArticlesSuccess(response.data.resultData));
-        }else {
-          browserHistory.push('/');
-        }
-      }).catch(function (error) {
-        browserHistory.push('/');
-        console.log(error);
-      });
-  };
-}
-
-
 export function loadArticleDetail(id) {
   return function (dispatch) {
     dispatch(clearArticlesDetails());
@@ -74,6 +57,23 @@ export function loadArticleDetail(id) {
           dispatch(loadArticlesDetailSuccess(response.data.resultData));
         }else{
           browserHistory.push('/products');
+        }
+      }).catch(function (error) {
+        browserHistory.push('/');
+        console.log(error);
+      });
+  };
+}
+
+
+export function loadTopArticles() {
+  return function (dispatch) {
+    return axios.get('http://localhost:8080/api/getArticlePage?limit=10&offset=0')
+      .then(function (response) {
+        if(response.data.result) {
+          dispatch(loadTopArticlesSuccess(response.data.resultData));
+        }else {
+          browserHistory.push('/');
         }
       }).catch(function (error) {
         browserHistory.push('/');

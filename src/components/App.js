@@ -31,13 +31,13 @@ class App extends React.Component {
 
     const script = document.createElement("script");
     script.className = 'customJS';
-    script.src = "../libs/custom.js";
+    script.src = "../../libs/custom.js";
     script.async = true;
     document.body.appendChild(script);
 
     const script1 = document.createElement("script");
     script1.className = 'simplyscrollJS';
-    script1.src = "../libs/jquery.simplyscroll.min.js";
+    script1.src = "../../libs/jquery.simplyscroll.min.js";
     script1.async = true;
     document.body.appendChild(script1);
 

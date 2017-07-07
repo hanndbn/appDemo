@@ -4,6 +4,7 @@ import products from './productsReducer';
 import productDetail from './productDetailReducer';
 import newsDetail from './newsDetailReducer';
 import news from './newsReducer';
+import categories from './categoriesReducer';
 import {routerReducer} from 'react-router-redux';
 
 const rootReducer = combineReducers({
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   productDetail,
   newsDetail,
   news,
+  categories,
   routing: routerReducer
 });
 

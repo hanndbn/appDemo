@@ -1,8 +1,10 @@
 import React from 'react';
-//import {Link} from 'react-router';
+import {Link} from 'react-router';
 import '../../styles/home-page.css';
 import {connect} from 'react-redux';
-
+import {browserHistory} from 'react-router';
+import * as actions from '../../actions/productsActions';
+import {bindActionCreators} from 'redux';
 class ProductDetail extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -11,10 +13,26 @@ class ProductDetail extends React.Component {
     //let id = this.props.params[id];
     //console.log(1);
   }
+  handleClickProducts(e, category_key){
+    e.preventDefault();
+    if(category_key != null) {
+      this.props.actions.loadProductsWithCategory(10,0,category_key);
+      browserHistory.push(`/sanpham/${category_key}`);
+    }else{
+      this.props.actions.loadProducts(10,0);
+      browserHistory.push(`/sanpham`);
+    }
+  }
 
   render() {
     return (
       <div className="container">
+        <div className="product-info">
+          <div className="title-global">
+            <h2 className="productDetailSpecial"><Link to={`/sanpham`} onClick={(e)=>{this.handleClickProducts(e, null)}}>Sản Phẩm</Link>{' > '}<Link to={`/sanpham/${this.props.productDetail.categoryKey}`} onClick={(e)=>{this.handleClickProducts(e, this.props.productDetail.categoryKey)}}>{this.props.productDetail.categoryName}</Link>{' > ' + this.props.productDetail.name}</h2>
+            <div className="clearfix"/>
+          </div>
+        </div>
         <div className="row">
           <div className="col-lg-10 col-md-12">
             <div className="product-detail">
@@ -57,7 +75,7 @@ class ProductDetail extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     productDetail: state.productDetail,
   };
@@ -65,9 +83,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // onComponentWillMount() {
-    //   dispatch(cartAction.toggleEditorView(false));
-    // },
+    actions: bindActionCreators(actions, dispatch)
   }
 };
 

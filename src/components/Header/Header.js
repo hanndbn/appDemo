@@ -1,52 +1,36 @@
 import React from 'react';
 import '../../styles/home-page.css';
-import { Link, IndexLink } from 'react-router';
-
+import { Link } from 'react-router';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {browserHistory} from 'react-router';
+import {bindActionCreators} from 'redux';
+import * as actions from '../../actions/productsActions';
 
 class Header extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  handleClickProducts(e, category_key){
+    e.preventDefault();
+    if(category_key != null) {
+      this.props.actions.loadProductsWithCategory(10,0,category_key);
+      browserHistory.push(`/sanpham/${category_key}`);
+    }else{
+      this.props.actions.loadProducts(10,0);
+      browserHistory.push(`/sanpham`);
+    }
+  }
   render() {
     return (
       <header id="header">
         <div className="topbar">
           <div className="container">
             <div className="pull-left left">
-              <ul>
-                <li><a href="http://www.facebook.com/#"><i className="fa fa-facebook"/></a></li>
-                <li><a href="https://twitter.com/#"><i className="fa fa-twitter"/></a></li>
-                <li><a href="https://plus.google.com/#"><i className="fa fa-google-plus"/></a></li>
-
-                <li><a href="skype:-skype-?chat"><i className="fa fa-skype"/></a></li>
-              </ul>
             </div>
             <div className="right">
               <div className="block login">
                 <a className="btnlogin user_name_display" href="#" title="">Đăng nhập</a>
-                <div className="expandlogin login">
-                  <div className="row">
-                    <div className="col-md-12 fmlogin">
-                      <p className="title">Đăng nhập bằng tài khoản</p>
-                      {/*<div>*/}
-                        {/*<input type="hidden" name="type_login" value="1"/>*/}
-                        {/*<div className="form-group">*/}
-                          {/*<label className="field-name">Email <span className="req">*</span></label>*/}
-                          {/*<input className="form-control" type="text" placeholder="Nhập email" name="p_email"/>*/}
-                        {/*</div>*/}
-                        {/*<div className="form-group">*/}
-                          {/*<label className="field-name">Mật khẩu <span className="req">*</span></label>*/}
-                          {/*<input className="form-control" type="password" placeholder="Nhập mật khẩu"*/}
-                                 {/*name="p_password"/>*/}
-                        {/*</div>*/}
-                        {/*<div className="form-group form-footer">*/}
-                          {/*<p>Bạn đã quên mật khẩu? <a href="#"*/}
-                                                      {/*title="Quên mật khẩu">Click vào đây!</a></p>*/}
-                          {/*<div className="text-center">*/}
-                            {/*<input className="btn btn-default" type="submit" value="Đăng nhập"/>*/}
-                          {/*</div>*/}
-                        {/*</div>*/}
-                      {/*</div>*/}
-                    </div>
-                  </div>
-                </div>
               </div>
               <div className="block contact">
                 <a className="" href="#" title=""><img
@@ -72,7 +56,7 @@ class Header extends React.Component {
           <div className="row">
             <div className="col-xs-5 col-sm-5 col-md-12 col-lg-12"/>
             <div className="col-xs-3 col-lg-2 col-md-3">
-              <Link to="/home"><img width="100%" src="../images/logo2.png" alt=""/></Link>
+              <Link to="/home"><img width="100%" src="../../images/logo2.png" alt=""/></Link>
             </div>
             <div className="col-xs-12 col-lg-10 col-md-9">
               <div className="navbar">
@@ -103,28 +87,24 @@ class Header extends React.Component {
                             </Link>
                           </li>
                           <li className="">
-                            <Link to="#" title="SẢN PHẨM" style={{cursor: 'default'}}
+                            <Link to="/sanpham" title="SẢN PHẨM" onClick={(e)=>{this.handleClickProducts(e, null)}}
                                className="item-haschild has-submenu" id="sm-14959438921544436-17" aria-haspopup="true"
                                aria-controls="sm-14959438921544436-18" aria-expanded="false">
                               SẢN PHẨM<span className="caret"/>
                             </Link>
                             <ul className="dropdown-menu" id="sm-14959438921544436-18" role="group" aria-hidden="true"
                                 aria-labelledby="sm-14959438921544436-17" aria-expanded="false">
-                              <li className="">
-                                <Link to="/products" title="MỸ PHẨM">
-                                  MỸ PHẨM
-                                </Link>
-                              </li>
-                              <li className="">
-                                <Link to="/products" title="THỰC PHẨM CHỨC NĂNG">
-                                  THỰC PHẨM CHỨC NĂNG
-                                </Link>
-                              </li>
-                              <li className="">
-                                <Link to="/products" title="CÔNG NGHỆ">
-                                  CÔNG NGHỆ
-                                </Link>
-                              </li>
+                              {
+                                this.props.categories.map((item, index)=>{
+                                  return(
+                                    <li className="header-categories" key={index}>
+                                      <Link to={`/sanpham/${item.category_key}`} title={item.name} onClick={(e)=>{this.handleClickProducts(e, item.category_key)}}>
+                                        {item.name}
+                                      </Link>
+                                    </li>
+                                  );
+                                })
+                              }
                             </ul>
                           </li>
                           <li className="">
@@ -151,4 +131,21 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+Header.propTypes = {
+  categories: PropTypes.array.isRequired,
+};
+
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    categories: state.categories,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
