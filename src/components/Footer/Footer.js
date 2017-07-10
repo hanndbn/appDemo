@@ -1,6 +1,7 @@
 import React from 'react';
 //import {Link} from 'react-router';
 import '../../styles/home-page.css';
+import {connect} from 'react-redux';
 
 class Footer extends React.Component {
   render() {
@@ -11,35 +12,30 @@ class Footer extends React.Component {
           <div className="container">
 
             <div className="row bottom">
-              <div className="col-lg-3 col-md-3 col-sm-5 col-xs-5">
+              <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <nav className="nav">
                   <ul>
                     <li>
                       <a href="#" title="">
-                        Liên hệ
+                        THÔNG TIN LIÊN HỆ
                       </a>
-                      <p><strong>SHOWROOM 1 - Bản Đồ</strong><br/>
-                        <a href="https://www.google.com/maps/d/embed?mid=1rwQCLQG_mT5jG-TMDfqw-cyJJss&amp;hl=vi"
-                           target="_blank">307/26Bis Nguyễn Văn Trỗi, P.1, Q.Tân Bình, HCM Tp. Hồ Chí Minh</a><br/>
-                        <strong>SHOWROOM 2 - Bản Đồ</strong><br/>
-                        <a
-                          href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1647.6864688186777!2d106.68191127957024!3d10.82042213031402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528e498314255%3A0x3727f96d39c5d056!2zU2hvcCBUw6xuaCBOaMOibg!5e0!3m2!1svi!2s!4v1492483136793"
-                          target="_blank">78C38 Phạm Ngũ Lão, P.3, Q.Gò Vấp, Tp. Hồ Chí Minh</a>
-                      </p>
-
+                      <p><strong>Công ty TNHH {this.props.info.congty}</strong><br/></p>
+                      <p><strong>Địa chỉ: </strong>{this.props.info.diachi}</p>
+                      <p><strong>Điện thoại: </strong>{this.props.info.dienthoai}</p>
+                      <p><strong>Email: </strong>{this.props.info.email}</p>
                       <p>&nbsp;</p>
-
-                      <p><strong>LÀM VIỆC 8h-21h HÀNG NGÀY</strong></p>
-
-                      <p><strong>Tống đài: CN1: 0839972267 | CN2: 0862.890.111</strong></p>
                     </li>
                   </ul>
                 </nav>
               </div>
-              <div className="col-lg-9 col-md-9 col-sm-7 col-xs-7 googleMapDiv">
+              <div className="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                <iframe src="https://www.facebook.com/plugins/like_box.php?app_id=&amp;header=true&amp;height=300&amp;href=https://www.facebook.com/facebook/&amp;locale=vi_VN&amp;sdk=joey&amp;show_border=true&amp;show_faces=true&amp;stream=false&amp;width=380" width="340" height="300" style={{border: 'none', visibility: 'visible', width: '380px', height: '220px',}} scrolling="no" frameBorder="0" allowFullScreen="true" allowTransparency="true"></iframe>
+              </div>
+              <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12 googleMapDiv">
                 <iframe src="https://www.google.com/maps/d/embed?mid=1z5z4nPaMp_U0VFcKcEL2v6CDZLE"
                         className="googleMap"/>
-                <div className="totalAccess text-right"><p>Tổng số lượt truy cập: 25</p></div>
+                <div className="totalAccess text-right"><p>Tổng số lượt truy cập: </p>
+                </div>
               </div>
             </div>
           </div>
@@ -49,4 +45,14 @@ class Footer extends React.Component {
   }
 }
 
-export default Footer;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    info: state.info,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

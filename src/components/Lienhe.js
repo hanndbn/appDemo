@@ -12,7 +12,7 @@ class AboutPage extends React.Component {
           <div className="container">
             <div className="row">
               <div className="global-title">
-                <h2 className="">Giới thiệu công ty</h2>
+                <h2 className="">Liên hệ</h2>
                 <div className="clearfix"/>
               </div>
             {/*<p>Thông tin liên hệ</p>*/}

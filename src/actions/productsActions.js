@@ -11,6 +11,14 @@ export function loadProductsSuccess(data, numberPage) {
   };
 }
 
+export function loadProductsSearchSuccess(data, numberPage) {
+  return {
+    type: types.LOAD_PRODUCTS_SEARCH_SUCCESS,
+    data,
+    numberPage
+  };
+}
+
 export function loadProductsDetailSuccess(productDetail) {
   return {
     type: types.LOAD_PRODUCT_DETAIL_SUCCESS,
@@ -37,14 +45,41 @@ export function clearProducts() {
   };
 }
 
+export function clearProductsSearch() {
+  return {
+    type: types.CLEAR_PRODUCTS_SEARCH
+  };
+}
+
 export function setCurrentPage(currentPage) {
   return {
     type: types.SET_CURRENT_PAGE,
     currentPage
   };
 }
+export function setCurrentSearchPage(currentSearchPage) {
+  return {
+    type: types.SET_CURRENT_SEARCH_PAGE,
+    currentSearchPage
+  };
+}
 
-
+export function searchProduct(limit, offset, searchStr) {
+  return function (dispatch) {
+    dispatch(clearProductsSearch());
+    return axios.get('http://localhost:8080/api/searchProduct?limit=' + limit + '&offset=' + offset+ '&searchStr=' + searchStr)
+      .then(function (response) {
+        if(response.data.result) {
+          dispatch(loadProductsSearchSuccess(response.data.resultData, response.data.numberRecord));
+        }else {
+          browserHistory.push('/');
+        }
+      }).catch(function (error) {
+        browserHistory.push('/');
+        console.log(error);
+      });
+  };
+}
 
 
 export function loadProducts(limit, offset) {

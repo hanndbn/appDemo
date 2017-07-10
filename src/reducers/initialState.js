@@ -1,5 +1,10 @@
 export default {
   products: {
+    searchProducts:{
+      data: [],
+      numberPage: 1,
+      currentPage : 1,
+    },
     topProducts: [],
     data: [],
     numberPage: 1,
@@ -13,6 +18,12 @@ export default {
   },
   newsDetail: {},
   categories: [],
+  lienhe:{
+    congty: 'DFG',
+    diachi: '165 Thái Hà, Đống Đa, Hà Nội',
+    dienthoai: '0985584989',
+    email: 'admin@dfgvn.online'
+  },
   fuelSavings: {
     newMpg: '',
     tradeMpg: '',

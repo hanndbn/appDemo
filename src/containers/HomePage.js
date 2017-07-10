@@ -8,20 +8,27 @@ import Footer from '../components/Footer/Footer';
 import {connect} from 'react-redux';
 
 class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleLoad = this.handleLoad.bind(this);
+  }
   componentDidMount() {
-    jQuery(".feature-adv .slider ul").each(function () {
-      jQuery("li", this).length > 1 && (jQuery("li", this).css("display", "block"), $(this).bxSlider({
-        nextSelector: '#slider-next',
-        prevSelector: '#slider-prev',
-        pager: !1,
-        controls: !0,
-        moveSlides: 1,
-        hideControlOnEnd: !0,
-        infiniteLoop: !0,
-        auto: !0,
-        pause: 5e3,
-        speed: 2e3
-      }))
+    window.addEventListener('load', this.handleLoad);
+  }
+
+  handleLoad() {
+    $("#scroller").simplyScroll({orientation: 'vertical'});
+    $(".i4ewOd-pzNkMb-haAclf").hide();
+
+    $("#bxslider1").bxSlider({
+      pager: !1,
+      controls: !0,
+      moveSlides: 1,
+      hideControlOnEnd: !0,
+      infiniteLoop: !0,
+      auto: !0,
+      pause: 7e3,
+      speed: 2e3
     });
   }
 
@@ -33,8 +40,8 @@ class HomePage extends React.Component {
           <Banner/>
           <div className="container">
             <div className="row">
-              <CustomerComment/>
               <NewFeeds/>
+              <CustomerComment/>
             </div>
             <Products productList={this.props.products}
                       productTitle="SẢM PHẦM CHỦ ĐẠO"

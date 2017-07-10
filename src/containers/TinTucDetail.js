@@ -1,8 +1,6 @@
 import React from 'react';
 import Header from '../components/Header/Header';
 import NewsDetail from '../components/NewsDetail/NewsDetail';
-import NewFeeds from '../components/NewFeeds/NewFeeds';
-import CustomerComment from '../components/CustomerComment/CustomerComment';
 import Footer from '../components/Footer/Footer';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -22,12 +20,6 @@ class TinTucDetail extends React.Component {
         <Header/>
         <div id="main">
           <NewsDetail/>
-          <div className="container">
-            <div className="row">
-              <CustomerComment/>
-              <NewFeeds/>
-            </div>
-          </div>
         </div>
         <Footer/>
       </div>

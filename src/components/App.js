@@ -5,22 +5,11 @@ import PropTypes from 'prop-types';
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
 class App extends React.Component {
-  componentDidMount(){
-    $("#scroller").simplyScroll({orientation: 'vertical'});
-    $(".i4ewOd-pzNkMb-haAclf").hide();
-
-    $("#bxslider1").bxSlider({
-      pager: !1,
-      controls: !0,
-      moveSlides: 1,
-      hideControlOnEnd: !0,
-      infiniteLoop: !0,
-      auto: !0,
-      pause: 7e3,
-      speed: 2e3
-    });
-  }
   componentDidUpdate(){
+    this.runInit();
+  }
+
+  runInit(){
     window.scrollTo(0,0);
     $('.customJS').remove();
     $('.simplyscrollJS').remove();
